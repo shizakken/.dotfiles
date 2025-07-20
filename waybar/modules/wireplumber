@@ -1,0 +1,20 @@
+{
+    "wireplumber": {
+        "on-click": "pavucontrol",
+        "on-click-right": "amixer sset Master toggle 1>/dev/null",
+        "on-click": "${wpctl} amixer -D pulse set Master toggle",
+        "format": " {volume}%",
+        "format-muted": " 0% ",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": ["  ", "  ", "  "]
+        },
+    },
+}

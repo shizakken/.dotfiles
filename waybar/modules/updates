@@ -1,0 +1,9 @@
+{
+    "custom/updates": {
+        "format": "{}",
+        "escape": true,
+        "return-type": "json",
+        "exec": "~/.config/waybar/scripts/updates.sh",
+        "interval": 1800,
+    },
+}

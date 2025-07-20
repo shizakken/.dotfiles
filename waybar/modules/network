@@ -1,0 +1,15 @@
+{
+    "network": {
+        "format": "󱤚 {ipaddr}",
+        "format-wifi": "󱤚 {essid}",
+        "format-alt": "󱤚",
+        "format-ethernet": "󰈀 {ifname}: {ipaddr}/{cidr}",
+        "format-linked": "󰈀 {ifname} (No IP)",
+        "format-disconnected": "Disconnected",
+        "tooltip-format": "󰈀 {ifname} via {gwaddri}",
+        "tooltip-format-wifi": " {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signaldBm}dBm ({signalStrength}%)\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+        "tooltip-format-ethernet": "󰈀 {ifname}\nIP: {ipaddr}\n {bandwidthUpBits}\n {bandwidthDownBits}",
+        "tooltip-format-disconnected": "Disconnected",
+        "interval": 5,
+    },
+}

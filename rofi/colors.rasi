@@ -1,0 +1,16 @@
+* {
+    background-color:           rgba(23, 23, 23, 0.85);
+    foreground-color:           rgba(255, 255, 255, 1.0);
+    active-color:               rgba(216, 50, 81, 1.0);
+    inactive-color:             rgba(53, 54, 65, 1.0);
+    background-alt-color:       rgba(19, 19, 19, 1.0);
+
+    highlight-color:            rgba(99, 78, 94, 1.0);
+
+    text-color:                 rgba(255, 255, 255, 1.0);
+
+    selected-color:             rgba(20, 20, 20, 0.9);
+
+    button-color:               rgba(19, 19, 19, 0.9);
+    active-button-color:        rgba(97, 214, 113, 0.95);
+}

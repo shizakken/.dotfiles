@@ -1,0 +1,131 @@
+{
+    "include": [
+        "~/.config/waybar/modules/network",
+        "~/.config/waybar/modules/storage",
+        "~/.config/waybar/modules/keyboard",
+        "~/.config/waybar/modules/updates",
+        "~/.config/waybar/modules/wlogout",
+        "~/.config/waybar/modules/wireplumber",
+        "~/.config/waybar/modules/tray",
+        "~/.config/waybar/modules/cpu",
+        "~/.config/waybar/modules/spotify",
+        "~/.config/waybar/modules/memory",
+        "~/.config/waybar/modules/clock",
+    ],
+
+    "layer": "top",
+    "position": "top",
+    "height": 28,
+    "margin-left": 4,
+    "margin-bottom": 0,
+    "margin-right": 4,
+    "margin-top": 5,
+    "spacing": 0, // Gaps between modules
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "custom/spotify"
+    ],
+
+    "modules-center": [
+        "clock",
+    ],
+
+    "modules-right": [
+        "custom/updates",
+        "group/system",
+        "tray",
+        "custom/wlogout"
+    ],
+
+    // -------------------------------------------------------------------------
+    // Modules
+    // -------------------------------------------------------------------------
+
+    "group/system": {
+        "orientation": "horizontal",
+        "modules": [
+            "network",
+            "custom/storage",
+            "memory",
+            "cpu",
+            "wireplumber",
+            "hyprland/language",
+        ]
+    },
+
+    "custom/media": {
+        "format": "{0} {1}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+    },
+
+    "mpd": {
+        "max-length": 25,
+        "format": "<span foreground='#bb9af7'></span> {title}",
+        "format-paused": " {title}",
+        "format-stopped": "<span foreground='#bb9af7'></span>",
+        "format-disconnected": "",
+        "on-click": "mpc --quiet toggle",
+        "on-click-right": "mpc update; mpc ls | mpc add",
+        "on-click-middle": "alacritty -e ncmpcpp",
+        "on-scroll-up": "mpc --quiet prev",
+        "on-scroll-down": "mpc --quiet next",
+        "smooth-scrolling-threshold": 5,
+        "tooltip-format": "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})"
+    },
+
+    "hyprland/workspaces": {
+        "all-outputs": true,
+        "format": "{name}",
+        "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "10": "十",
+        },
+        "on-scroll-up": "hyprctl dispatch workspace e+1 1>/dev/null",
+        "on-scroll-down": "hyprctl dispatch workspace e-1 1>/dev/null",
+        "sort-by-number": true,
+        "active-only": false,
+    },
+
+    "hyprland/window": {
+        "max-length": 100,
+        "separate-outputs": true
+    },
+
+    "pulseaudio": {
+        "scroll-step": 3, // %, can be a float
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        //"format-source": "{volume}% ",
+        //"format-source-muted": "",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol",
+        "on-click-right": "amixer sset Master toggle"
+    },
+}

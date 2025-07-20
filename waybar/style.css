@@ -1,0 +1,225 @@
+/* Global */
+/*=====================================*/
+* {
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    border: none;
+    margin: 0;
+    padding: 0;
+    min-height: 15px;
+}
+/*=====================================*/
+
+/* Waybar */
+/*=====================================*/
+#waybar {
+    background-color: transparent;
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    border-radius: 8px;
+    margin: 0px 0px;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+/*=====================================*/
+
+/* Workspaces */
+/*=====================================*/
+#workspaces {
+    margin: 2px 4px;
+    border-radius: 6px;
+    padding: 1px;
+    background: #23222f;
+    opacity: 0.9;
+    /* border: 1px solid #ffffff; */
+}
+
+#workspaces button {
+    min-width: 20px;
+    box-shadow: none;
+    margin: 2px 3px;
+    text-shadow: none;
+    border-radius: 3px;
+    transition: all 0.1s linear;
+    background: #353641;
+}
+
+#workspaces button.active {
+    min-width: 28px;
+    transition: all 0.1s linear;
+    color: #23222f;
+    background: #ffffff;
+}
+
+#workspaces button:hover {
+    color: #ffffff;
+    background: #634e5e;
+    border: none;
+}
+
+#workspaces button.urgent {
+    background-color: #e64553;
+}
+/*=====================================*/
+
+/* Clock */
+/*=====================================*/
+#clock {
+    margin: 2px 4px 2px 4px;
+    border-radius: 6px;
+    padding: 1px 6px 1px 6px;
+    background: #23222f;
+    opacity: 0.9;
+    /* border: 1px solid #ffffff; */
+}
+/*=====================================*/
+
+/* Updates */
+/*=====================================*/
+#custom-updates {
+    margin: 2px 4px;
+    border-radius: 6px;
+    padding: 1px 6px 1px 6px;
+    background: #fae3b2;
+    color: #23222f;
+    border: none;
+}
+
+#custom-updates.green {
+    background: #fae3b2;
+}
+
+#custom-updates.yellow {
+    background: #ffc85b;
+}
+
+#custom-updates.red {
+    background: #d83251;
+}
+/*=====================================*/
+
+/* Keyboard Layout */
+/*=====================================*/
+#hyprland-language {
+    margin: 2px 4px 2px 4px;
+    padding: 0px 12px 0px 6px;
+    color: #ffffff;
+    background: #23222f;
+}
+/*=====================================*/
+
+/* Pulse Audio */
+/*=====================================*/
+#pulseaudio {
+    margin: 2px 0px 2px 4px;
+    padding: 0px 8px 0px 8px;
+    border: 1px solid alpha(@border, 0.33);
+    border-radius: 6px 0px 0px 6px;
+    border-right: none;
+    color: @text;
+    background: @background;
+}
+
+#pulseaudio:hover {
+    color: shade(@hover, 1.25);
+}
+/*=====================================*/
+
+/* Power Menu */
+/*=====================================*/
+#custom-wlogout {
+    background: #23222f;
+    opacity: 0.9;
+    margin: 2px 4px;
+    padding: 0 2px 0 2px;
+    /* border: 1px solid #ffffff; */
+    border-radius: 6px;
+}
+/*=====================================*/
+
+/* System Block */
+/*=====================================*/
+#system {
+    background: #23222f;
+    opacity: 0.9;
+    margin: 2px 4px;
+    /* border: 1px solid #ffffff; */
+    border-radius: 6px;
+}
+
+#network,
+#custom-storage,
+#memory,
+#cpu,
+#wireplumber,
+#language {
+    padding: 0 6px 0 6px;
+    border: none;
+    margin: 0;
+}
+/*=====================================*/
+
+/* Tray */
+/*=====================================*/
+#tray {
+    background: #23222f;
+    opacity: 0.9;
+    border: none;
+    margin: 2px 4px;
+    padding: 0 4px 0 4px;
+    border-radius: 6px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #d83251;
+}
+/*=====================================*/
+
+@keyframes blink {
+    to {
+        background-color: rgba(30, 34, 42, 0.5);
+        color: #abb2bf;
+    }
+}
+
+label:focus {
+    background-color: #23222f;
+}
+
+#custom-media {
+    background-color: #66cc99;
+    color: #2a5c45;
+    min-width: 100px;
+}
+
+#idle_inhibitor {
+    background-color: #2d3436;
+}
+
+#idle_inhibitor.activated {
+    background-color: #ecf0f1;
+    color: #2d3436;
+}
+
+/* Hide empty modules */
+/*=====================================*/
+window#waybar.empty #window,
+#tray.empty,
+#custom-mediaplayer.empty {
+    border: 0px;
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+}
+/*=====================================*/

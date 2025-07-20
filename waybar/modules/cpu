@@ -1,0 +1,6 @@
+{
+    "cpu": {
+        "interval": 1,
+        "format": " {max_frequency:.2f}GHz",
+    },
+}

@@ -1,0 +1,7 @@
+{
+    "memory": {
+    	"interval": 5,
+    	"format": " {}%",
+    	"max-length": 10
+    },
+}
