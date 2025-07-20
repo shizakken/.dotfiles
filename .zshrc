@@ -1,65 +1,54 @@
-# Enable Powerlevel10k instant prompt. Should stay at the top of ~/.zshrc.
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Set up the prompt
+# Path to your oh-my-zsh installation.
+export ZSH="/usr/share/oh-my-zsh"
 
-autoload -Uz promptinit
-promptinit
-prompt adam1
+# Uncomment the following line if pasting URLs and other text is messed up.
+DISABLE_MAGIC_FUNCTIONS="true"
 
-setopt histignorealldups sharehistory
+# Uncomment the following line to enable command auto-correction.
+ENABLE_CORRECTION="true"
 
-# Use emacs keybindings even if our EDITOR is set to vi
-bindkey -e
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
 
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=1000
-HISTFILE=~/.zsh_history
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+[[ -z "${plugins[*]}" ]] && plugins=(git fzf extract)
 
-# Use modern completion system
-autoload -Uz compinit
-compinit
+source $ZSH/oh-my-zsh.sh
 
-zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle ':completion:*' format 'Completing %d'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-zstyle ':completion:*' menu select=long
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' verbose true
+# User configuration
 
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+# Ignore commands that start with spaces and duplicates.
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export HISTCONTROL=ignoreboth
 
-source /home/ikken/powerlevel10k/powerlevel10k.zsh-theme
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Manual configuration
-# System's PATH
-export PATH=/root/.local/bin:/snap/bin:/usr/sandbox/:/usr/local/bin:/usr/bin:/bin:/usr/local/go/bin:/usr/local/games:/home/ikken/.cargo/bin:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+# Use custom `less` colors for `man` pages.
 
-export PATH="/home/ikken/.rustup/toolchains/esp/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin:$PATH"
+export LESS_TERMCAP_md="$(tput bold 2> /dev/null; tput setaf 2 2> /dev/null)"
+export LESS_TERMCAP_me="$(tput sgr0 2> /dev/null)"
 
-#export PATH="/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64:$PATH"
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-export LIBCLANG_PATH="/home/ikken/.rustup/toolchains/esp/xtensa-esp32-elf-clang/esp-16.0.4-20231113/esp-clang/lib"
+# Make new shells get the history lines from all previous
+# shells instead of the default "last window closed" history.
 
-#export LD_PRELOAD=/home/ikken/usb-driver/libusb-driver.so
-export XILINXD_LICENSE_FILE=/opt/Xilinx/Xilinx.lic
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Aliases
 alias ls='lsd'
@@ -67,58 +56,27 @@ alias ll='lsd -lh'
 alias la='lsd -a'
 alias lt='lsd --tree'
 alias lla='lsd -lha'
-alias cat='batcat'
 
-# Xilinx ISE
-#source /opt/Xilinx/14.7/ISE_DS/settings64.sh
+# Get the error messages from journalctl
+alias jctl="journalctl -p 3 -xb"
 
-# Custom LSD colors
-export LS_COLORS=~/.config/lsd/config.yaml
+# Recent installed packages
+alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # Plugins
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh-sudo/sudo.plugin.zsh
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
-# Set 'man' colors
-function man() {
-    env \
-    LESS_TERMCAP_mb=$'\e[01;31m' \
-    LESS_TERMCAP_md=$'\e[01;31m' \
-    LESS_TERMCAP_me=$'\e[0m' \
-    LESS_TERMCAP_se=$'\e[0m' \
-    LESS_TERMCAP_so=$'\e[01;44;33m' \
-    LESS_TERMCAP_ue=$'\e[0m' \
-    LESS_TERMCAP_us=$'\e[01;32m' \
-    man "$@"
-}
+# pkgfile "command not found" handler
+source /usr/share/doc/pkgfile/command-not-found.zsh
 
-# Print colors
-function pcolors() {
-	for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
-}
+unsetopt correct
+unsetopt correct_all
 
-# Custom binds
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Move cursor one word backward
-bindkey '^[[1;5D' backward-word
-
-# Move cursor one word forward
-bindkey '^[[1;5C' forward-word
-
-# Delete the previous word
-bindkey '^W' backward-kill-word
-
-# Delete the next word
-bindkey '^[[3;5~' kill-word
-
-# Prepend sudo on the current commmand
-bindkey -M emacs '' _sudo_command_line
-bindkey -M vicmd '' _sudo_command_line
-bindkey -M viins '' _sudo_command_line
-
-# Finalize Powerlevel10k instant prompt. Should stay at the bottom of ~/.zshrc.
-(( ! ${+functions[p10k-instant-prompt-finalize]} )) || p10k-instant-prompt-finalize
-
-. "$HOME/.cargo/env"
-
+export FZF_BASE=/usr/share/fzf
