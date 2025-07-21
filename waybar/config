@@ -11,6 +11,8 @@
         "~/.config/waybar/modules/spotify",
         "~/.config/waybar/modules/memory",
         "~/.config/waybar/modules/clock",
+        "~/.config/waybar/modules/battery",
+        "~/.config/waybar/modules/powerprofile",
     ],
 
     "layer": "top",
