@@ -1,0 +1,16 @@
+{
+    "battery": {
+        "bat": "BAT0",
+        "format": "{icon} {capacity}%",
+        "format-alt": "{icon}",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": " {capacity}%",
+        "tooltip": true,
+        "interval": 5,
+        "states": {
+        "warning": 30,
+        "critical": 15
+        },
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    },
+}
