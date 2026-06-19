@@ -52,7 +52,6 @@
             "memory",
             "cpu",
             "wireplumber",
-            "battery",
             "hyprland/language",
         ]
     },

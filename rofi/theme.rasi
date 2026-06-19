@@ -90,7 +90,7 @@ mainbox {
 imagebox {
     padding:                     10px;
     background-color:            transparent;
-    background-image:            url("~/Pictures/Wallpapers/beautiful-mountains-landscape-3.jpg", height);
+    background-image:            url("~/Pictures/Wallpapers/2.png", height);
     orientation:                 vertical;
     children:                    [ "inputbar", "dummy", "mode-switcher" ];
 }

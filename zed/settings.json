@@ -7,49 +7,97 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "cli_default_open_behavior": "new_window",
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
+  "edit_predictions": {
+    "mode": "eager",
+  },
+  "disable_ai": true,
+  "agent": {
+    "dock": "right",
+    "default_model": {
+      "provider": "google",
+      "model": "gemini-3-pro-preview",
+    },
+    "model_parameters": [],
+  },
+  "buffer_font_weight": 400.0,
+  "buffer_line_height": "comfortable",
+  "preferred_line_length": 100,
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Catppuccin Frappé",
+    "dark": "Catppuccin Frappé"
+  },
   "vim_mode": false,
   "ui_font_size": 14,
-  "buffer_font_size": 14,
+  "buffer_font_size": 14.0,
   "ui_font_family": "JetBrainsMono Nerd Font Mono",
   "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "theme": {
-    "mode": "system",
-    "light": "One Dark",
-    "dark": "One Dark"
+    "mode": "dark",
+    "light": "Graphene Light",
+    "dark": "Kanagawa",
+  },
+  "languages": {
+    "Rust": {
+      "format_on_save": "off",
+    },
+    "Go": {
+      "format_on_save": "off",
+    },
+    "HTML": {
+      "format_on_save": "off",
+    },
+    "C": {
+      "tab_size": 4,
+      "format_on_save": "on",
+    },
   },
   "lsp": {
     "rust-analyzer": {
       "initialization_options": {
         "inlayHints": {
           "bindingModeHints": {
-            "enable": true
+            "enable": true,
           },
           "chainingHints": {
-            "enable": true
+            "enable": true,
           },
           "closingBraceHints": {
             "enable": true,
-            "minLines": 25
+            "minLines": 25,
           },
           "closureReturnTypeHints": {
-            "enable": true
+            "enable": true,
           },
           "lifetimeElisionHints": {
             "enable": "skip_trivial",
-            "useParameterNames": true
+            "useParameterNames": true,
           },
           "parameterHints": {
-            "enable": true
+            "enable": true,
           },
           "reborrowHints": {
-            "enable": true
+            "enable": true,
           },
           "typeHints": {
             "enable": true,
-            "hideNamedConstructor": false
-          }
-        }
-      }
-    }
-  }
+            "hideNamedConstructor": false,
+          },
+        },
+      },
+    },
+  },
 }

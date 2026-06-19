@@ -158,7 +158,6 @@ window#waybar.hidden {
 #memory,
 #cpu,
 #wireplumber,
-#battery,
 #language {
     padding: 0 6px 0 6px;
     border: none;

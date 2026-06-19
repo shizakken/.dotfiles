@@ -3,3 +3,6 @@ command = "rust-analyzer"
 
 [language-server.rust-analyzer.config.check]
 command = "clippy"   # use clippy instead of cargo check
+
+[language-server.rust-analyzer.config.inlayHints]
+enable = true

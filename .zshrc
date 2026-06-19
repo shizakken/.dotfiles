@@ -56,6 +56,8 @@ alias ll='lsd -lh'
 alias la='lsd -a'
 alias lt='lsd --tree'
 alias lla='lsd -lha'
+alias hx='helix'
+alias zed='zeditor'
 
 # Get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
@@ -80,3 +82,6 @@ unsetopt correct_all
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export FZF_BASE=/usr/share/fzf
+export PATH=$PATH:/usr/local/go/bin
+
+[[ -s "/home/ikken/.gvm/scripts/gvm" ]] && source "/home/ikken/.gvm/scripts/gvm"
